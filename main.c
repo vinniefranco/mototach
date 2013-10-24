@@ -15,7 +15,7 @@
 
 // Mocking voltage input
 #define POWER_MIN 1
-#define POWER_MAX 512
+#define POWER_MAX 1024
 #define SHIFT_AT  5
 
 #define MAX_LUM             255
@@ -84,14 +84,14 @@ int main (void)
       power_to_luminance(adc_value, &rgb); // Get intensities
       set_pwm_intensities(&rgb);           // Set intensities
 
-      _delay_us(12);
+      _delay_us(1024);
     }
     else
     {
       toggle = !toggle;     // Invert toggle
       set_flash(toggle); // Set flash
 
-      _delay_ms(4);
+      _delay_ms(32);
     }
 
   }
@@ -139,7 +139,7 @@ void run_startup_sequence ( ColorRGB * _initRGB )
     PWM_G = _initRGB->green;
     PWM_B = _initRGB->blue;
 
-    _delay_us(8);
+    _delay_us(1024);
   }
 }
 
