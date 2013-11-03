@@ -40,24 +40,13 @@ int main (void)
 
   /* - Attiny85 Setup ------------------------------------------------------ */
 
-  DDRB = (1<<PB1) | (1<<PB0); // Set pins 5,6 as output.
+  DDRB |= (1<<DDB2) (1<<DDB1) | (1<<DDB0); // Set pins 3, (2,1) as output.
 
   // PWM -----------------------------------------------------------------------
-
-
   TCCR0A = (1<<COM0A1) | (1<<COM0A0); // Non inverting mode (OC0A and OC0B)
   TCCR0A |= (1<<WGM01) | (1<<WGM00); // Fast PWM
   TCCR0B = (1<<CS00); // No prescaling
 
-  // ADC -----------------------------------------------------------------------
-  /*  ADCSRA |=  (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0);    //Prescaler at 128 so we have an 125Khz clock source
-  ADMUX  |=  (1<<REFS0);                              //
-  ADMUX  &= ~(1<<REFS1);                              //Avcc(+5v) as voltage reference
-  ADCSRB &= ~((1<<ADTS2) | (1<<ADTS1) | (1<<ADTS0));  //ADC in free-running mode
-  ADCSRA |= (1<<ADATE);                               //Signal source, in this case is the free-running
-  ADCSRA |= (1<<ADEN);                                //Power up the ADC
-  ADCSRA |= (1<<ADSC);                                //Start converting
-  *//* ------------------------------------------------------------------------ */
 
   ColorRGB rgb = {.red = 0, .green = 0, .blue = 0}; // Holds intensity values.
 
