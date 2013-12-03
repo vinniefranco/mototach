@@ -87,7 +87,7 @@ void set_intensity ( uint8_t range )
 
 void set_output_pins ( void )
 {
-  DDRB |= (1<<DDB4) | (1<<DDB2) | (1<<DDB1); // Set PB4, PB2 PB1 as output.
+  DDRB |= (1<<DDB4) | (1<<DDB1); // Set PB4, PB1 as output.
 }
 
 void startup_routine ( void )
